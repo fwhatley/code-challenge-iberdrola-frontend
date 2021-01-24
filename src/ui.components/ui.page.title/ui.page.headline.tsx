@@ -12,7 +12,7 @@ function UiPageHeadline(props: Props) {
     } = props;
 
     return (
-        <div className="ui-page-headline row mt-5">
+        <div className="ui-page-headline row mt-3">
             <div className="col-12">
                 <h1>{title}</h1>
             </div>

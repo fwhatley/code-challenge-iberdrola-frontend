@@ -1,6 +1,7 @@
 import { ApiDataService } from './api.data.service';
 import ApiErrorModel from '../models/api.error.model';
 import TrackRecords from '../views/track.records/track.records.json';
+import { ApiMocksService } from './api.mock.service';
 
 class ApiCallService {
     constructor() {
@@ -16,14 +17,15 @@ class ApiCallService {
         let url = apiData ? `${apiData.path}` : '';
 
         // added this to avoid cors issues in local host
-        // return new Promise((resolve) => {
-        //     // Adding a timer to the mock data so the application can display any loaders if necessary
-        //     setTimeout(resolve, 2000);
-        // })
-        // .then(() => {
-        //     return Promise.resolve(TrackRecords);
-        // });
-
+        if (ApiMocksService.isApiMocksEnabled()) {
+            return new Promise((resolve) => {
+                // Adding a timer to the mock data so the application can display any loaders if necessary
+                setTimeout(resolve, 2000);
+            })
+            .then(() => {
+                return Promise.resolve(TrackRecords);
+            });
+        }
 
         if (apiData) {
             const findUrlParam = /{\s*[\w.]+\s*}/g;

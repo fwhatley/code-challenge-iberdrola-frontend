@@ -24,7 +24,7 @@ function TrackRecordsDetails() {
     };
 
     const notAbleToLoad = !loadingTrackRecords && trackRecords?.results?.length <= 0;
-    const errorMessage = 'We couldn\'t load the track record details. Please try again later.';
+    const errorMessage = 'We couldn\'t load the track record details. Please try again later. If this is a CORS issue, use the mocks toggle above and refresh the page.';
 
     return (
         <div className="track-records-details container">
@@ -44,7 +44,7 @@ function TrackRecordsDetails() {
                 <div className={'col-12 my-3'}>
                     <img src={track?.artworkUrl100} className="img-fluid" alt="Responsive image"/>
                 </div>
-                <div className={'col-12'}>
+                <div className={'col-12 overflow-auto'}>
                     <div className={'d-flex'}>
                         <strong>ArtworkURL: </strong>
                         <span>{track?.artworkUrl100}</span>

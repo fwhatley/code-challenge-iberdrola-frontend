@@ -15,7 +15,7 @@ function TrackRecords() {
     const {trackRecords = {}, loadingTrackRecords = false} = trackRecordsState;
 
     const notAbleToLoad = !loadingTrackRecords && trackRecords?.results?.length <= 0;
-    const errorMessage = 'We couldn\'t load the track record details. Please try again later.';
+    const errorMessage = 'We couldn\'t load the track record details. Please try again later. If this is a CORS issue, use the mocks toggle above and refresh the page.';
 
     const onSeeTrackDetails = (trackId = '') => {
         if (trackId) {
@@ -38,7 +38,7 @@ function TrackRecords() {
             {!loadingTrackRecords &&
             trackRecords?.results?.length > 0 &&
             <div className="row">
-                <div className="col-12">
+                <div className="col-12 overflow-auto">
                     <table className="table table-bordered">
                         <thead>
                         <tr>
