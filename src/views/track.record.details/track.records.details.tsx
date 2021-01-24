@@ -46,7 +46,7 @@ function TrackRecordsDetails() {
                 </div>
                 <div className={'col-12 overflow-auto'}>
                     <div className={'d-flex'}>
-                        <strong>ArtworkURL: </strong>
+                        <strong>ArtworkURL:&nbsp;</strong>
                         <span>{track?.artworkUrl100}</span>
                     </div>
                     <div>
@@ -68,6 +68,9 @@ function TrackRecordsDetails() {
                     <div>
                         <strong>Release Date: </strong>
                         <span>{track?.formattedReleaseDate}</span>
+                    </div>
+                    <div>
+                        <a target={'_blank'} href={track?.trackViewUrl}>See TrackView</a>
                     </div>
                     <div className={'pt-3'}>
                         <audio controls>
