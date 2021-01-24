@@ -69,6 +69,12 @@ function TrackRecordsDetails() {
                         <strong>Release Date: </strong>
                         <span>{track?.formattedReleaseDate}</span>
                     </div>
+                    <div className={'pt-3'}>
+                        <audio controls>
+                            <source src={track?.previewUrl} />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
                 </div>
             </div>
             }
